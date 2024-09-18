@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Counter</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<style>
+    body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background-color: #2c2c2c;
+    }
+    
+    .counter-container {
+        text-align: center;
+        background: rgba(2, 2, 2, 0.795);
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    
+    .counter-container h1 {
+        color: #fff;
+    }
+    
+    #counter {
+        color: #fff;
+        font-size: 52px;
+        margin: 30px;
+    }
+    
+    button {
+        font-size: 1em;
+        padding: 5px 10px;
+        margin: 0px 10px 5px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+    
+    .buttons {
+        display: flex;
+    }
+    
+    #increment {
+        background-color: #2eaa32;
+        color: white;
+        font-size: 5px;
+        margin-bottom: 10px;
+        height: 110px;
+    }
+    
+    #increment img,
+    #decrement img {
+        width: 40px;
+        height: 40px;
+        vertical-align: middle;
+    }
+    
+    #decrement {
+        background-color: #d33024;
+        color: white;
+        margin-bottom: 10px;
+        height: 110px;
+    }
+    
+    #reset {
+        background-color: #008CBA;
+        color: white;
+        width: 100px;
+        height: 50px;
+    }
+</style>
+
+<body>
+    <div class="counter-container">
+        <h1>Counter</h1>
+        <div class="buttons">
+            <button id="decrement"><img src="img/decrement.png" alt=""></button>
+            <div id="counter">0</div>
+            <button id="increment"><img src="img/increment.png" alt=""></button>
+        </div>
+        <button id="reset">Reset</button>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            let counter = 0;
+
+            const counterDisplay = document.getElementById('counter');
+            const incrementButton = document.getElementById('increment');
+            const decrementButton = document.getElementById('decrement');
+            const resetButton = document.getElementById('reset');
+
+            incrementButton.addEventListener('click', () => {
+                counter++;
+                updateCounterDisplay();
+            });
+
+            decrementButton.addEventListener('click', () => {
+                counter--;
+                updateCounterDisplay();
+            });
+
+            resetButton.addEventListener('click', () => {
+                counter = 0;
+                updateCounterDisplay();
+            });
+
+            function updateCounterDisplay() {
+                counterDisplay.textContent = counter;
+            }
+        });
+    </script>
+</body>
+
+</html>
